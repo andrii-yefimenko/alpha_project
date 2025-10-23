@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
     bucket = "alpha-project-static-site-state-2310"
-    key = "global/s3/terraform.tfstate"
+    key    = "global/s3/terraform.tfstate"
     region = "eu-central-1"
   }
 }
