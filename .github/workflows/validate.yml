@@ -1,4 +1,4 @@
-name: HTML & Terraform Validation + AWS Deploy
+name: HTML & Terraform Validation
 
 on: push
 
@@ -20,9 +20,10 @@ jobs:
   validate_terraform:
     name: Validate Terraform configuration
     runs-on: ubuntu-latest
+    needs: validate_html
 
     steps:
-      - name: Chekout repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Set up Terraform
