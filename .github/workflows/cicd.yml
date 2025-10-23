@@ -16,3 +16,23 @@ jobs:
 
       - name: Validate HTML
         run: tidy -qe website/index.html
+
+  validate_terraform:
+    name: Validate Terraform configuration
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Chekout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Format Check
+        run: terraform fmt -check
+
+      - name: Terraform Validate
+        run: terraform validate
